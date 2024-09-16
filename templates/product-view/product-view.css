@@ -1,0 +1,195 @@
+.product-view-container {
+    display: flex;
+}
+
+.product-view-images {
+    flex-grow: 1;
+}
+
+.product-view-image > img {
+    width: 560px;
+    left: -200px;
+    margin-bottom: 50px;
+}
+
+.product-view-description-container {
+    flex-grow: 1;
+    font-size: 18px;
+    /*margin-left: auto;*/
+    /*margin-right: auto;*/
+    /*right: 10%;*/
+
+}
+
+.product-view-description-header {
+    display: flex;
+    margin-top: 50px;
+    color: #343334;
+}
+
+.product-view-name {
+    text-transform: uppercase;
+    flex-grow: 8;
+}
+
+.product-view-price {
+    flex-grow: 1;
+    margin-right: 15px;
+}
+
+.product-view-stock {
+    font-size: 24px;
+    margin-top: -5px;
+    margin-bottom: 50px;
+}
+
+.color-stock-green {
+    color: green;
+}
+
+.color-stock-orange {
+    color: orange;
+}
+
+.color-stock-red {
+    color: red;
+}
+
+.product-view-name > span {
+    border-bottom: 4px solid #FBD607;
+    position: sticky;
+    bottom: 150px;
+}
+
+.detail-stick {
+    position: sticky;
+    top: 200px;
+}
+
+.product-information {
+    max-width: calc(100vw - 50vw);
+    max-height: 330px;
+    overflow: auto;
+    padding: 0 10px;
+}
+
+.product-information-header {
+
+}
+
+.product-view-buttons {
+    display: flex;
+    padding: 40px 20px 40px 10px;
+}
+
+.flex-buttons {
+    margin-right: 20px;
+}
+
+.hideButtonWish {
+    display: none;
+}
+
+.addToCart {
+    height: 50px;
+    background: #FBD607;
+    border: none;
+    color: #343334;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Gilmer Medium', sans-serif;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.addToCart:hover {
+    background-color: #edc20c;
+}
+
+.addToWishlist {
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #343334;
+    color: #343334;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Gilmer Medium', sans-serif;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+
+.addToWishlist:hover {
+    color: #FBD607;
+}
+
+.addToWishlist:hover img {
+    content: url("../../images/site/wishlist-icon.svg");
+}
+
+.addToWishlist > img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+.addToWishlist > span {
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.removeToWishlist {
+    height: 50px;
+    background-color: #ffffff;
+    border: 1px solid #343334;
+    color: #343334;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Gilmer Medium', sans-serif;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.removeToWishlist > img {
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    display: inline-block;
+}
+
+
+.removeToWishlist > span {
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.displayRemoveToWishlist {
+    display: block;
+}
+
+.displayAddToWishlist {
+    display: block;
+}
+
+/* Rezolvare Bug cand sunt elemente in wishilist si cand nu sunt*/
+/*#searchProduct {*/
+/*    margin-block-end: 0em !important;*/
+/*}*/
+
+/*#searchProduct > input {*/
+/*    height: 58px !important;*/
+/*}*/
+
+
+
+

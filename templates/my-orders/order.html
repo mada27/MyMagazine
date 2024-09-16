@@ -1,0 +1,40 @@
+<div>
+    <div class="user-order-table-content">
+        <h5>{{ user_orders_id_number }}</h5>
+        <h5>{{ user_orders_stats }}</h5>
+        <h5>{{ user_orders_total_value }} Lei</h5>
+        <h5>{{ user_orders_total_items }}</h5>
+        <h5>{{ user_orders_purchased }}</h5>
+        <h5>
+            <button onclick="toggleContent('{{ user-order-id }}')" class="user-order-expand-button">
+                Detalii Comandă
+            </button>
+        </h5>
+    </div>
+    <div class="user-order-table-content-expand" id="{{ user-order-id }}">
+        <div class="user-order-expand">
+            <h5></h5>
+            <h5>Nume</h5>
+            <h5>Preț</h5>
+            <h5>Cantitate</h5>
+            <h5>Total</h5>
+        </div>
+        {{ same_day_order }}
+    </div>
+</div>
+
+<script>
+    function toggleContent(toggleElement) {
+        var x = document.getElementById(toggleElement);
+        var openContent = x.classList.contains('user-order-expand-show');
+        console.log(x);
+        if (!openContent) {
+            x.classList.add("user-order-expand-show");
+
+        } else {
+            x.classList.remove("user-order-expand-show");
+
+        }
+
+    }
+</script>

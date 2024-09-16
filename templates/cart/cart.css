@@ -1,0 +1,223 @@
+.card-A {
+    all: unset
+}
+
+.cart-button {
+    background-image: url("../../images/site/cart-icon.svg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: 24px;
+    display: inline-block;
+    cursor: pointer;
+    width: 80px;
+    height: 45px;
+    line-height: 71px;
+    color: #fff;
+    font-size: 16px;
+    font-family: 'Gilmer Regular',sans-serif;
+    padding: 0;
+    text-align: center;
+}
+
+.cart-button:hover{
+    background-image:url("../../images/site/cart-icon-hover.svg")
+}
+
+.cartTotalAmount {
+    width: 70px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.cartItemCount {
+    position: absolute;
+    background-color: #FBD607;
+    color: #343334;
+    margin-top: -56px;
+    margin-left: 43px;
+    display: flex;
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.cart-dropdown-content {
+    display: none;
+    position: absolute;
+    will-change: transform;
+    background-color: #ffffff;
+    box-shadow: 0 3px 22px #00000029;
+    border-radius: 5px;
+    border: none;
+    width: 420px;
+    text-align: right;
+    margin-left: -180px;
+    padding-bottom: 10px;
+}
+
+.dropdown:hover .cart-dropdown-content {
+    display: block;
+}
+
+.cart-header {
+    border-bottom: 1px solid #D2D2D2;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cart-header p {
+    font-size: 14px;
+    color: #7E7A7A;
+    margin: 0;
+}
+
+.cart-content {
+    max-height: 400px;
+    overflow: auto;
+    padding: 0 25px;
+}
+
+.cart-footer {
+    border-bottom: 1px solid #D2D2D2;
+    border-top: 1px solid #D2D2D2;
+    padding: 10px 25px;
+}
+
+.cart-footer p {
+    color: #343334;
+    text-transform: uppercase;
+    letter-spacing: 0.53px;
+    font-size: 16px;
+}
+
+.cart-dropdown-content > .buy-now {
+    background-color: #FBD607;
+    height: 26px;
+    width: 90px;
+    display: block;
+    color: #343334;
+    font-size: 14px;
+    line-height: 28px;
+    margin: 15px auto 0;
+    text-align: center;
+    border-radius: 2px;
+    padding: 1em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.cart-dropdown-content > .buy-now:hover {
+    background-color: #edc20c;
+}
+
+
+/*Card items*/
+
+.card-item {
+    display: grid;
+    grid-gap: 5px;
+    padding: 10px 0;
+    grid-template-areas:
+        '0 0 title title title'
+        'product-image product-image quantity price delete';
+    grid-template-columns: 40px 1fr 82px 90px 20px;
+    border-bottom: 1px solid #D2D2D2;
+}
+
+.card-item p.title {
+    color: #343334;
+    text-transform: uppercase;
+    letter-spacing: 0.53px;
+    grid-area: title;
+}
+
+.card-item-img {
+    margin-top: -30px;
+    width: 100%;
+    max-width: 80px;
+    height: 80px;
+    -o-object-fit: contain;
+    object-fit: contain;
+    margin-right: 7px;
+    grid-area: product-image;
+}
+
+.card-item-quantity {
+    display: flex;
+    margin-left: -20px;
+    grid-area: quantity;
+}
+
+.card-item-quantity-span {
+    color: #343334;
+    margin-left: -30px;
+}
+
+.card-item-product-quantity {
+    width: 30px;
+    border: 1px solid #F3F3F3;
+    border-radius: 2px;
+    height: 22px;
+    padding: 0 5px;
+    margin: 0 4px;
+    line-height: normal;
+    text-align: center;
+}
+
+.quantity-button {
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    margin: 0;
+    line-height: 20px;
+    border: none;
+}
+
+.card-item-price {
+    text-align: right !important;
+    margin-top: 7px;
+    font-size: 16px;
+    color: #7E7A7A;
+    grid-area: price;
+}
+
+.card-form-delete {
+    grid-area: delete;
+}
+
+.card-item-delete {
+    background: url("../../images/site/delete-icon.svg");
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: transparent;
+    margin-left: 0;
+    grid-area: delete;
+    width: 24px;
+    height: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.card-item-delete:hover {
+    transition: all .2s ease-in-out;
+    background: url("../../images/site/delete-icon-hover.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: transparent;
+    margin-left: 0;
+    grid-area: delete;
+    width: 24px;
+    height: 24px;
+    border: none;
+    cursor: pointer;
+}

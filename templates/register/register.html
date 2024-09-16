@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="templates/register/register.css">
+</head>
+<body>
+<div class="registerFrom">
+    <form action="../../register.php" method="POST" id="form" onsubmit="event.preventDefault();">
+        <fieldset>
+            <legend>Crează Cont:</legend>
+            <div id="errors" class="{{ showError }} alert-danger">{{ errors }}</div>
+            <label class="form-label">Prenume:</label>
+            <input type="text" name="firstname" id="firstName" value="">
+            <br>
+            <label class="form-label">Nume:</label>
+            <input type="text" name="lastname" value="" id='lastName'>
+            <br>
+            <label class="form-label">E-mail:</label>
+            <input type="text" name="email" value="" id='email'>
+            <br>
+            <label class="form-label">Parolă:</label>
+            <input type="password" name="password" value="" id='password'>
+            <br>
+            <label class="form-label">Confirmare Parolă:</label>
+            <input type="password" name="confirmPassword" value="" id='confirmPassword'>
+            <br>
+            <label class="form-label">Telefon:</label>
+            <input type="text" name="phone" value="" id="phoneNumber">
+            <br>
+            <br>
+            <button onclick="checkFields()" id="buttonRegister">Înregistrare</button>
+        </fieldset>
+    </form>
+    <p class="terms">Când vă înscrieți pentru un cont, sunteți de acord cu
+        <a href="../../terms.php">
+            <u>termenii și condițiile noastre.</u>
+        </a>
+    </p>
+    <a href="../../login.php" class="backToLogIn">Sunteți înregistrat? <u>Spre autentificare!</u></a>
+    <script text="text/javascript">
+        function verif(x,y)
+        {	if(x.length<y)
+                return 1;
+            else
+                return 0;
+        }
+        function validateEmail(email) {
+              var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                  return re.test(email);
+                }
+
+        function telephoneCheck(str) {
+              var isphone = /^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/.test(str);
+              if(isphone)
+               return 1;
+
+            }
+
+        function checkFields()
+        {	var errors = [];
+            var firstName = document.getElementById('firstName').value;
+              var lastName = document.getElementById('lastName').value;
+              var email = document.getElementById('email').value;
+              var password = document.getElementById('password').value;
+              var confirmPassword = document.getElementById('confirmPassword').value;
+              var phoneNumber=document.getElementById("phoneNumber").value;
+            if (verif(firstName,1)) {
+                 errors.push("• Prenumele este obligatoriu și nu poate fi gol");
+            }
+            if (verif(lastName,1)) {
+             errors.push("<br>• Numele de familie este obligatoriu și nu poate fi gol");
+            }
+            if (verif(password,8)){
+             errors.push("<br>• Parola trebuie să fie cuprinsă între 8 și 150 de caractere");
+            }
+            if (confirmPassword!=password) {
+             errors.push("<br>• Confirmarea parolei nu se potrivește");
+            }
+            if (!telephoneCheck(phoneNumber)) {
+             errors.push("<br>• Numarul de telefon nu este valid");
+            }
+            if (verif(email,1)) {
+                errors.push("<br>• Adresa de e-mail este obligatorie și nu poate fi goală.");
+            } else {
+                if (!validateEmail(email)) {
+                    errors.push("<br>• Adresa de e-mail nu este validă.");
+                }
+            }
+            if(errors.length > 0) {
+                document.getElementById("errors").innerHTML = errors;
+                document.getElementById("errors").className = "displayErrors";
+            } else {
+                form = document.getElementById('form');
+                form.submit();
+            }
+
+        }
+
+      </script>
+</div>
+<div style="margin-top: 100px"></div>
+{{ footer }}
+</body>
+</html>

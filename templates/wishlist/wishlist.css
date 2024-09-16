@@ -1,0 +1,59 @@
+.wish-dropdown-content {
+    display: none;
+    position: absolute;
+    will-change: transform;
+    background-color: #ffffff;
+    box-shadow: 0 3px 22px #00000029;
+    border-radius: 5px;
+    border: none;
+    width: 300px;
+    max-width: 360px;
+    text-align: right;
+    margin-left: -120px;
+
+}
+
+.dropdown:hover .wish-dropdown-content {
+    display: block;
+}
+
+.wish-content {
+    max-height: 400px;
+    overflow: auto;
+    padding: 0 10px;
+}
+
+
+/*wish products*/
+
+.wish-item-name{
+    color: #343334;
+    font-size: 18px;
+    float: left !important;
+}
+
+.wish-item {
+    float: right;
+    background: url("../../images/site/delete-icon.svg");
+    background-size: 15px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+    border: none;
+    cursor: pointer;
+}
+
+.wish-item:hover {
+    transition: all .2s ease-in-out;
+    background: url("../../images/site/delete-icon-hover.svg");
+    background-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+    border: none;
+    cursor: pointer;
+}

@@ -1,0 +1,17 @@
+.noProducts-container {
+    margin: 200px 0 0 75px;
+    font-size: 22px;
+}
+
+.noProducts-container .noResults {
+    color: red;
+    font-size: 28px;
+}
+
+.noProducts-container .noResults > span {
+    color: #343334;
+}
+
+.noProducts-container .helpResults {
+    margin-top: 50px;
+}

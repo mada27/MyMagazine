@@ -1,0 +1,27 @@
+<div class="card-item">
+    <p class="title">
+        <strong>{{ cart_product_name }}</strong>
+    </p>
+    <img class="card-item-img" src="images/{{ cart_product_image }}" alt="Error">
+    <div class="card-item-quantity">
+        <form action="cart.php">
+            <button class="quantity-button" name="{{ cart_userId }}//{{ cart_productId }}//DOWN1">-</button>
+        </form>
+        <form action="cart.php">
+            <input type="text" value="{{ cart_product_quantity }}" class="card-item-product-quantity" name="{{ cart_userId }}//{{ cart_productId }}//INP">
+        </form>
+        <form action="cart.php">
+            <button class="quantity-button" name="{{ cart_userId }}//{{ cart_productId }}//UP1">+</button>
+        </form>
+    </div>
+    <p class="card-item-price">
+        <strong>
+            <span>
+                {{ cart_product_calc_price }}
+            </span>
+        </strong>
+    </p>
+    <form action="cart.php" class="card-form-delete">
+        <button class="card-item-delete" name="{{ cart_userId }}//{{ cart_productId }}//DELETE"></button>
+    </form>
+</div>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="templates/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>ShopIT</title>
+</head>
+<body class="{{ bodyClass }}">
+<header>
+    <input id="nav-toggle" type="checkbox">
+    <div class="logo">
+        <a href="index.php">
+        SHOP<strong style="color: #FBD607">IT</strong>
+        </a>
+    </div>
+    <ul>
+        <li>
+            <div class="dropdown">
+                <button class="dropbutton">Produse <i class="fa fa-caret-down"></i></button>
+                <div class="dropbutton-content">
+                    {{ categoriesDropDown }}
+                </div>
+            </div>
+        </li>
+        <li><a href="terms.php">Informații</a></li>
+        <li style="float:right">
+            <div class="dropdown">
+                <a href="{{ LOG }}">
+                    <button class="dropbtn"><i class="fa fa-user-o" style="margin-right: 10px;"></i>{{ sign }}
+                    </button>
+                </a>
+                {{ logged }}
+            </div>
+        </li>
+        {{ wishlist }}
+        {{ shopCart }}
+        <li>
+            <form action="../search.php" method="GET" id="searchProduct">
+                <input id="search" placeholder="Caută ..." value="" name="search">
+                <button type="submit" class="searchButton yellowButton" autofocus>
+                    <img src="images/site/search-icon.svg">
+                </button>
+            </form>
+        </li>
+    </ul>
+    <label for="nav-toggle" class="icon-burger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </label>
+</header>
+<div class="content {{ contentClass }}">
+    {{ content }}
+</div>
+</body>
+{{ footer }}
+</html>

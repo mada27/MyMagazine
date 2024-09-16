@@ -1,0 +1,27 @@
+.terms-container {
+    max-width: 1280px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 50px;
+}
+
+.terms-container h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #212529;
+}
+
+.terms-container h3 {
+    font-size: 24px;
+    font-family: 'Gilmer Medium', sans-serif;
+    color: #343334;
+}
+
+.terms-container p {
+    margin-bottom: 15px;
+    font-family: 'Gilmer Regular', sans-serif;
+    color: #343334;
+}

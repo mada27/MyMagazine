@@ -1,0 +1,353 @@
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+#exp {
+  background-color: white;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+#expyears {
+  background-color: white;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+.container {
+  background-color: #f2f2f2;
+  padding: 5px 20px 15px 20px;
+  border: 1px solid lightgrey;
+  border-radius: 3px;
+}
+
+input[type=text] {
+  width: 100%;
+  margin-bottom: 20px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+label {
+  margin-bottom: 10px;
+  display: block;
+}
+
+.icon-container {
+  margin-bottom: 20px;
+  padding: 7px 0;
+  font-size: 24px;
+}
+
+.btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+a {
+  color: #2196F3;
+}
+
+hr {
+  border: 1px solid lightgrey;
+}
+
+span.price {
+  float: right;
+  color: grey;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+
+#errors {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  left:40%;
+  top:0;
+  border: solid 0.2px red;
+  color:red;
+  display: block;
+  position: absolute;
+}
+</style>
+</head>
+<body>
+<div id="errors">{{ errors }}</div>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form action="wishlist.php" method="POST" onsubmit="event.preventDefault();" id="checkoutForm">
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
+            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
+            <label for="email"><i class="fa fa-envelope"></i> Email</label>
+            <input type="text" id="email" name="email" placeholder="john@example.com">
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
+            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
+            <label for="city"><i class="fa fa-institution"></i> City</label>
+            <input type="text" id="city" name="city" placeholder="New York">
+            <input type="hidden" name="productId" value='{{ productId }}'>
+            <input type="hidden" name="userId" value='{{ userIdd }}'>
+            <div class="row">
+              <div class="col-50">
+                <label for="state">State</label>
+                <input type="text" id="state" name="state" placeholder="NY">
+              </div>
+              <div class="col-50">
+                <label for="zip">Zip</label>
+                <input type="text" id="zip" name="zip" placeholder="10001">
+              </div>
+            </div>
+          </div>
+
+          <div class="col-50">
+            <h3>Payment</h3>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname">Name on Card</label>
+            <input type="text" id="cardName" name="cardname" placeholder="John More Doe">
+            <label for="ccnum">Credit card number</label>
+            <input type="text" id="ccNumber" name="cardnumber" placeholder="1111-2222-3333-4444">
+            <label for="cvv">CVV</label>
+            <input type="text" id="cvv" name="cvv" placeholder="352">
+            <div class="row">
+              <div class="col-50">
+                <label for="expmonth">Exp Month</label>
+                    <input list="expmonth" name="expmonth" id="exp" placeholder="January">
+                      <datalist id="expmonth">
+                      <option value="January">January</option>
+                      <option value="February">February</option>
+                      <option value="March">March</option>
+                      <option value="April">April</option>
+                      <option value="May">May</option>
+                      <option value="June">June</option>
+                      <option value="July">July</option>
+                      <option value="August">August</option>
+                      <option value="September">September</option>
+                      <option value="October">October</option>
+                      <option value="November">November</option>
+                      <option value="December">December</option>
+                    </datalist>
+              </div>
+                <div class="col-50">
+                    <label for="expyear">Exp Year</label>
+                    <input list="expyear" name="expyear" id="expyears" placeholder="{{ year }}">
+                      <datalist id="expyear">
+                       {{ years }}
+                    </datalist>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+        <label>
+          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+        </label>
+        <input type="submit" onclick="checkFields()" value="Continue to checkout" class="btn">
+      </form>
+    </div>
+  </div>
+  <!-- <div class="col-25">
+    <div class="container">
+      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
+      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
+      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
+      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
+      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+      <hr>
+      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+    </div>
+  </div> -->
+</div>
+
+<script text="text/javascript">
+    var x;
+    var y;
+    var i;
+    var errorsDiv = document.getElementById("errors");
+
+    // var errorsDiv = document.getElementById("errors");
+    // if(errorsDiv.innerHTML=="{{ errors }}") {
+    //  errorsDiv.style.display = "none";
+    // }
+    function verif(x,y)
+    { if(x.length<y)  
+        return 1;
+      else
+        return 0;
+    }
+    function validateEmail(email) {
+       var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return re.test(email);
+    }
+
+    function telephoneCheck(str) {
+        var isphone = /^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/.test(str);
+        if(isphone)
+         return 1;
+    }
+    function validateCardNumber(number) {
+      var regex = new RegExp("^[0-9]{16}$");
+      if (!regex.test(number))
+        return false;
+
+     return luhnCheck(number);
+    }
+
+    function luhnCheck(val) {
+      var sum = 0;
+      for (var i = 0; i < val.length; i++) {
+        var intVal = parseInt(val.substr(i, 1));
+        if (i % 2 == 0) {
+            intVal *= 2;
+            if (intVal > 9) {
+                intVal = 1 + (intVal % 10);
+            }
+        }
+        //document.write(intVal);
+        sum += intVal;
+      }
+      //document.write(sum);
+    return (sum % 10) == 0;
+}
+
+
+
+    function checkFields()
+    { var errors = [];
+      var fullName = document.getElementById('fname').value;
+      var email = document.getElementById('email').value;
+      var address = document.getElementById('adr').value;
+      var city = document.getElementById('city').value;
+      var state = document.getElementById('state').value;
+      var zip = document.getElementById('zip').value;
+      var cardName = document.getElementById('cardName').value;
+      var ccNumber = document.getElementById('ccNumber').value;
+      var expmonth = document.getElementById('exp').value;
+      var expyear = document.getElementById('expyears').value;
+      var cvv = document.getElementById('cvv').value;
+      console.log(fullName);
+      console.log(email);
+      console.log(address);
+      console.log(city);
+      console.log(state);
+      console.log(zip);
+      console.log(cardName);
+      console.log(ccNumber);
+      console.log(expmonth);
+      console.log(expyear);
+      console.log(cvv);
+          if (verif(fullName,5) || fullName[0]==fullName[0].toLowerCase()) {
+                errors.push("Full Name must be filled out");
+          }
+
+          if (verif(address,10)){
+           errors.push("Address must be filled out");
+          }
+
+          if (!validateEmail(email)) {
+           errors.push("Email must be filled out");  
+          }
+
+          if (verif(city,4)){
+           errors.push("Name of city is wrong");
+          }
+
+          if (verif(state,2)){
+           errors.push("State is wrong");
+          }
+
+          if (verif(cardName,5) || cardName[0]==cardName[0].toLowerCase()) {
+            errors.push("Card name is incorect");
+          } 
+
+          if (!validateCardNumber(ccNumber)) {
+           errors.push("Card number is wrong");  
+          }
+
+          if(cvv.length!=3){
+           errors.push("cvv must have only 3 digits");
+          }
+
+          if (verif(expmonth,2)){
+           errors.push("Exp month is wrong");
+          }
+
+          if (verif(expyear,1)){
+           errors.push("Exp year is wrong");
+          }
+
+          errorsDiv.innerHTML="";
+          if(errors.length > 0) {
+              alert(errors);
+              for(i = 0; i < errors.length; i++){
+                errorsDiv.innerHTML += errors[i] + "<br>";
+              }
+          // var errorsDiv = document.getElementById("errors");
+          // errorsDiv.innerHTML = "<p>You have errors</p>";
+          // errorsDiv.style.display = "block";
+          } else {
+              form = document.getElementById('checkoutForm');
+              form.submit();
+            }
+          
+      }
+
+    </script>

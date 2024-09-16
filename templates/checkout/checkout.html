@@ -1,0 +1,188 @@
+<link rel="stylesheet" type="text/css" href="templates/checkout/checkout.css">
+<div class="checkout-container">
+    <form action="checkout.php" method="POST" onsubmit="event.preventDefault();" id="checkoutForm">
+        <div class="checkout-cart">
+            <div class="checkout-left-table">
+                <div class="checkout-left-card-header">
+                    <h4>Coșul meu</h4>
+                    <a href="index.php" class="continue-shopping">Continuă cumpărăturile</a>
+                </div>
+                <div class="checkout-left-card-info">
+                    <p>Produs</p>
+                    <p>Preț</p>
+                    <p>Cantitate</p>
+                    <p>Total</p>
+                </div>
+                {{ checkout_products }}
+                <div class="checkout-info">
+                    <h4>Infornații despre livrare</h4>
+                    <input type="hidden" name="pk" value="{{ checkout_user_Id }}">
+                    <div class="row">
+                        <div class="checkout-form-group">
+                            <label class="checkout-form-label">Nume:</label>
+                            <input class="checkout-form-personal-data" name="firstName" id="firstName">
+                        </div>
+                        <div class="checkout-form-group">
+                            <label class="checkout-form-label">Numele de familie:</label>
+                            <input class="checkout-form-personal-data" name="lastName" id="lastName">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="checkout-form-group">
+                            <label class="checkout-form-label">E-mail:</label>
+                            <input class="checkout-form-personal-data" name="email" id="email">
+                        </div>
+                        <div class="checkout-form-group">
+                            <label class="checkout-form-label">Număr de telefon:</label>
+                            <input class="checkout-form-personal-data" name="phoneNumber" id="phoneNumber">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="checkout-form-group">
+                            <label class="checkout-form-label">Adresă:</label>
+                            <input class="checkout-form-personal-data" name="address" id="address">
+                        </div>
+                        <div class="checkout-form-group">
+                            <label class="checkout-form-label">Oraș:</label>
+                            <input class="checkout-form-personal-data" name="city" id="city">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="checkout-form-group">
+                            <label class="checkout-form-label">Adaugați comentarii în legătură cu comanda:</label>
+                            <textarea class="checkout-form-personal-data" placeholder="-"
+                                      style="height: auto;" name="additionalInfo"></textarea>
+                        </div>
+                    </div>
+                    <div class="row checkout-checkbox">
+                        <input type="checkbox" id="checkbox">
+                        <label>
+                            <span id="checkboxText" class="">Acceptați termenii de tranzacționare </span>
+                            <a class="ourTerms" href="terms.php">Citiți termenii și condițiile noastre</a>
+                        </label>
+                    </div>
+                    <div class="row">
+                        <button onclick="checkFields()" class="checkout-button">PLASEAZĂ COMANDA</button>
+                    </div>
+                </div>
+            </div>
+            <div class="checkout-right-table">
+                <h4>Sumar comandă</h4>
+                <hr>
+                <div class="detail-payment">
+                    <div class="checkout-right-table-col-8">
+                        <h6>
+                            <strong>
+                                Valoare totală cu TVA
+                            </strong>
+                        </h6>
+                    </div>
+                    <div class="checkout-right-table-col-4">
+                        <h6>
+                            <strong>
+                                <span>{{ checkout_products_total_price }} LEI</span>
+                            </strong>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/4.2.2/jquery.form.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script text="text/javascript">
+    function verif(x,y)
+    {	if(x.length<y)
+        return 1;
+    else
+        return 0;
+    }
+    function validateEmail(email) {
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        return re.test(email);
+    }
+    function telephoneCheck(str) {
+        var isphone = /^(1\s|1|)?((\(\d{3}\))|\d{3})(\-|\s)?(\d{3})(\-|\s)?(\d{4})$/.test(str);
+        if(isphone)
+            return 1;
+    }
+    function checkFields()
+    {	var errors = [];
+        var firstName = document.getElementById('firstName');
+        var lastName = document.getElementById('lastName');
+        var email = document.getElementById('email');
+        var phoneNumber = document.getElementById('phoneNumber');
+        var address = document.getElementById('address');
+        var city = document.getElementById('city');
+        var checkbox = document.getElementById('checkbox').checked;
+        if (checkbox) {
+            document.getElementById('checkboxText').className = '';
+        } else {
+            errors.push("• Termenii și condițiile trebuie accepatate");
+            document.getElementById('checkboxText').className = 'showErrorCheckboxText';
+            document.getElementById('checkboxText').scrollIntoView({behavior: "smooth", block: "center"});
+        }
+        if (verif(city.value,1)) {
+            errors.push("• Orașul este obligatoriu și nu poate fi gol");
+            city.className += ' showErrorIncomplete';
+            city.scrollIntoView({behavior: "smooth", block: "center"});
+        } else {
+            city.className = 'checkout-form-personal-data';
+        }
+        if (verif(address.value,1)) {
+            errors.push("• Adresa este obligatorie și nu poate fi golă");
+            address.className += ' showErrorIncomplete';
+            address.scrollIntoView({behavior: "smooth", block: "center"});
+        } else {
+            address.className = 'checkout-form-personal-data';
+        }
+        if (!telephoneCheck(phoneNumber.value)) {
+            errors.push("• Numărul de telefon este obligatoriu și nu poate fi gol");
+            phoneNumber.className += ' showErrorIncomplete';
+            phoneNumber.scrollIntoView({behavior: "smooth", block: "center"});
+        } else {
+            phoneNumber.className = 'checkout-form-personal-data';
+        }
+        if (verif(email.value,1)) {
+            errors.push("• Adresa de e-mail este obligatorie și nu poate fi goală");
+            email.className += ' showErrorIncomplete';
+            email.scrollIntoView({behavior: "smooth", inline: "nearest"});
+        } else {
+            if (!validateEmail(email.value)) {
+                errors.push("• Adresa de e-mail nu este validă");
+                email.className += ' showErrorIncomplete';
+                email.scrollIntoView({behavior: "smooth", block: "center"});
+            } else {
+                email.className = 'checkout-form-personal-data';
+            }
+        }
+        if (verif(lastName.value,1)) {
+            errors.push("• Numele de familie este obligatoriu și nu poate fi gol");
+            lastName.className += ' showErrorIncomplete';
+            lastName.scrollIntoView({behavior: "smooth", block: "center"});
+        } else {
+            lastName.className = 'checkout-form-personal-data';
+        }
+        if (verif(firstName.value,1)) {
+            errors.push("• Prenumele este obligatoriu și nu poate fi gol");
+            firstName.className += ' showErrorIncomplete';
+            firstName.scrollIntoView({behavior: "smooth", block: "center"});
+        } else {
+            firstName.className = 'checkout-form-personal-data';
+        }
+        if(errors.length === 0) {
+            $(document).ready(function() {
+                swal({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Comanda dvs. a fost înregistrată cu succes!",
+                    timer: 3000
+                })
+            })
+            form = document.getElementById('checkoutForm');
+            form.submit();
+        }
+    }
+</script>

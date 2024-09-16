@@ -1,0 +1,339 @@
+.checkout-container {
+    max-width: 1280px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: 50px;
+}
+
+.checkout-cart {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    grid-gap: 15px;
+    grid-template-areas: 'left1 right2';
+}
+
+.checkout-left-table {
+    grid-area: left1;
+    box-shadow: 1px 10px 16px #00000029;
+    padding: 20px 25px;
+}
+
+.checkout-right-table {
+    grid-area: right2;
+    box-shadow: 1px 10px 16px #00000029;
+    padding: 20px 25px;
+    width: 350px;
+    height: max-content;
+}
+
+@media screen and (max-width: 1410px) {
+    .checkout-cart {
+        margin-left: 2%;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 15px;
+        grid-template-areas: 'right2'
+                            'left1';
+    }
+
+    .checkout-right-table {
+        width: 94%;
+    }
+}
+
+ /* ---------- left card ---------- */
+
+.checkout-left-card-header {
+    margin-bottom: 1rem !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    display: flex !important;
+}
+
+.checkout-left-card-header > h4 {
+    color: #343334;
+    flex: 1;
+    font-size: 20px;
+    font-family: 'Gilmer Medium', sans-serif;
+}
+
+.continue-shopping {
+    background-color: #007bff;
+    border-radius: 5px;
+    margin-top: 20px;
+    color: #ffffff;
+    height: 30px;
+    max-width: 230px;
+    width: 100%;
+    font-size: 16px;
+    text-align: center;
+    line-height: 30px;
+    font-family: 'Gilmer Medium', sans-serif;
+    text-decoration: none;
+}
+
+.checkout-left-card-info {
+    display: grid;
+    grid-template-columns: 1fr 200px 200px 200px 20px;
+    border-bottom: 1px solid #E4E4E4;
+    text-align: center;
+    padding: 5px 0;
+    margin-bottom: 16px;
+    grid-gap: 5px;
+}
+
+.checkout-left-card-info > p {
+    font-size: 16px;
+    color: #7E7A7A;
+    letter-spacing: 0.7px;
+    font-family: 'Gilmer Regular', sans-serif;
+}
+
+.checkout-card-item {
+
+}
+
+.checkout-card-item > .product-list {
+    display: grid;
+    grid-template-columns: 1fr 200px 200px 200px 20px;
+    grid-gap: 5px;
+    align-items: center;
+    grid-template-areas: 'product-details price quantity total-price delete';
+}
+
+.checkout-product-detail {
+    grid-area: product-details;
+    display: flex !important;
+}
+
+.checkout-product-detail > .productImage {
+    width: 100%;
+    max-height: 80px;
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+    flex: 0 0 62px;
+    margin-right: 10px;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.checkout-product-detail > h5 {
+    color: #343334;
+    font-size: 16px;
+    letter-spacing: 0.7px;
+    line-height: 19px;
+    margin: 0;
+    font-family: 'Gilmer Regular', sans-serif;
+    text-transform: uppercase;
+}
+
+.checkout-product-price {
+    grid-area: price;
+    text-align: center;
+}
+
+.product-list p {
+    font-size: 16px;
+    color: #7E7A7A;
+    letter-spacing: 0.7px;
+    font-family: 'Gilmer Regular', sans-serif;
+}
+
+.checkout-product-quantity-block {
+    grid-area: quantity;
+    display: flex;
+    margin-left: 50px;
+}
+
+.quantity-button-checkout {
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+    padding: 0;
+    margin: 0;
+    line-height: 20px;
+    border: none;
+}
+
+.checkout-product-total {
+    grid-area: total-price;
+    text-align: center;
+}
+
+.checkout-product-delete {
+    grid-area: delete;
+}
+
+.checkout-card-item > hr {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+
+}
+
+.checkout-info > h4 {
+    color: #343334;
+    flex: 1;
+}
+
+.checkout-info {
+    margin: 0 20px;
+}
+
+.checkout-info > .row {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.checkout-form-group {
+    margin-bottom: 1rem;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+
+.checkout-form-label {
+    color: #343334;
+    font-size: 14px;
+    line-height: 22px;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-family: 'Gilmer Regular', sans-serif;
+}
+
+.checkout-form-personal-data {
+    padding: 15px 18px;
+    background: #FFFFFF;
+    font-size: 16px;
+    height: 15px;
+    width: 85%;
+    border: 1px solid #D8D8D8;
+    color: #343334;
+    box-shadow: 0px 2px 4px #0000000d;
+    border-radius: 5px;
+}
+
+.checkout-checkbox {
+    margin: 20px -15px;
+    font-size: 18px;
+}
+
+.ourTerms {
+    font-family: 'Gilmer Medium', sans-serif;
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.checkout-button {
+    cursor: pointer;
+    height: 50px;
+    background: #FBD607;
+    border: none;
+    color: #343334;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Gilmer Medium', sans-serif;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0 15px;
+    text-transform: uppercase;
+}
+
+.checkout-button:hover {
+    background: #edc20c;
+}
+
+/* ---------- right card ---------- */
+
+.checkout-right-table {
+    color: #343334;
+    flex: 1;
+    font-size: 20px;
+    font-family: 'Gilmer Medium', sans-serif;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.checkout-right-table > h4 {
+    color: #343334;
+    flex: 1;
+    font-size: 20px;
+    font-family: 'Gilmer Medium', sans-serif;
+    padding-left: 15px;
+    margin-bottom: 2px;
+}
+
+.checkout-right-table > hr {
+    margin-top: 1rem;
+    margin-bottom: 0;
+    border: 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+.detail-payment {
+    display: flex;
+}
+
+.checkout-right-table-col-8 {
+    flex: 0 0 50.66667%;
+    max-width: 50.66667%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.checkout-right-table-col-8 > h6 {
+    color: #7F8389;
+    font-size: 16px;
+    letter-spacing: 0.7px;
+    line-height: 19px;
+}
+
+.checkout-right-table-col-4 {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.checkout-right-table-col-4 > h6 {
+    color: #7F8389;
+    font-size: 16px;
+    letter-spacing: 0.7px;
+    line-height: 19px;
+    text-align: right !important;
+}
+
+
+
+
+/*---------Errors---------*/
+
+.showErrorIncomplete {
+    border: 1px solid red;
+}
+
+.showErrorCheckboxText {
+    color: red !important;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,74 @@
+<link rel="stylesheet" type="text/css" href="templates/product-view/product-view.css">
+<div class="product-view-container">
+    <div class="product-view-images">
+        <div class="product-view-image">
+            <img src="images/{{ image }}" alt="Erorr_404">
+        </div>
+        {{ product-all-images }}
+    </div>
+    <div class="product-view-description-container">
+        <div class="product-view-description-header">
+            <h1 class="product-view-name"><span>{{ name }}</span></h1>
+            <h1 class="product-view-price"><span>Preț: {{ price }} Lei</span></h1>
+        </div>
+        <h1 class="product-view-stock {{ colorStock }}"><span>{{ stockProduct }}</span></h1>
+        <div class="detail-stick">
+            <div class="product-information">
+                <div class="product-information-header">
+                    <b>Creat pentru a descoperi epicul din fiecare zi</b>
+                    <br>
+                    <br>
+                    Nu vei mai rata niciodata fotografia perfecta. Conceput pentru a revolutiona filmarea si
+                    fotografierea cu o rezolutie cinematografica de peste 8K, astfel incat sa poti face fotografii epice
+                    chiar dintr-un clip video. 64MP, cel mai rapid cip al nostru si o baterie solida cu autonomie pentru
+                    intreaga zi. Lucrurile tocmai au luat o turnura epica.
+                    <br>
+                    <br>
+                    <b>Afisaj Super Smooth 120 Hz</b>
+                    <br><br>
+                    Cel mai fin ecran de derulare tine pasul cu toate fluxurile tale. Incredibil de receptiv, acest
+                    afisaj optimizeaza rata de improspatare pentru ceea ce faci cu fiecare atingere.
+                    <br>
+                    <br>
+                    <b>Dynamic AMOLED 2X</b>
+                    <br>
+                    <br>
+                    Uimitor de luminos. Incredibil de realist. Surprinzator de fin - acest afisaj surprinde prin culori
+                    vibrante si o claritate uimitoare, oferind o experienta de vizionare de neegalat. Si asta chiar si
+                    in lumina puternica a soarelui.
+                    <br><br>
+                    <b>Realizeaza fotografii epice cu fiecare videoclip 8K</b>
+                    <br><br>
+                    8K Video este cea mai inalta rezolutie a unui smartphone Samsung, ceea ce face ca filmarile tale sa
+                    arate chiar mai bine decat la cinematograf. Si cu 8K 24fps, fiecare vlog si amintire reprezinta
+                    urmatoarea ta sansa de a deveni celebru. Inregistreaza, incarca si vizioneaza direct pe YouTube.
+                    Apoi foloseste 8K Video Snap pentru a obtine un album cu imagini de 33MP de inalta calitate chiar
+                    din fiecare clip video de 8K. Este usor sa inregistrezi acum si sa trimiti un snap mai tarziu.
+                </div>
+            </div>
+            <div class="product-view-buttons">
+                <div class="flex-buttons">
+                    <form action="cart.php" id="addToCardForm">
+                        <button class="addToCart" name="{{ userId }}//{{ productId }}//ADD">Adaugă în coș</button>
+                    </form>
+                </div>
+                <div class="flex-buttons hideButtonWish  {{ displayAdd }}">
+                    <form action="wishlist.php" id="wishForm">
+                        <button class="addToWishlist" name="{{ userId }}//{{ productId }}//ADD">
+                            <img src="images/site/wishlist-black-icon.svg">
+                            <span>Adaugă la Favorite</span>
+                        </button>
+                    </form>
+                </div>
+                <div class="flex-buttons hideButtonWish {{ displayRemove }}">
+                    <form action="wishlist.php" id="wishRemoveForm">
+                        <button class="removeToWishlist" name="{{ userId }}//{{ productId }}//REMOVE">
+                            <img src="images/site/wishlist-fill-icon.svg">
+                            <span>Adaugat la Favorite</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

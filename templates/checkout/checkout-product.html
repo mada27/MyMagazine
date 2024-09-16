@@ -1,0 +1,43 @@
+<div class="checkout-card-item">
+    <div class="product-list">
+        <div class="checkout-product-detail">
+            <img class="productImage" src="images/{{ checkout_product_image }}" alt="error">
+            <h5>{{ checkout_product_name }}</h5>
+        </div>
+        <div class="checkout-product-price">
+            <p>
+                <strong>
+                    {{ checkout_product_price }}
+                </strong>
+            </p>
+        </div>
+        <div class="checkout-product-quantity-block">
+            <form></form>
+            <form action="checkout-product.php">
+                <button class="quantity-button-checkout"
+                        name="{{ checkout_product_userId }}//{{ checkout_product_id }}//DOWN1">-</button>
+            </form>
+            <form action="checkout-product.php">
+                <input type="text" value="{{ checkout_product_quantity }}" class="card-item-product-quantity"
+                       name="{{ checkout_product_userId }}//{{ checkout_product_id }}//INP">
+            </form>
+            <form action="checkout-product.php">
+                <button class="quantity-button-checkout"
+                        name="{{ checkout_product_userId }}//{{ checkout_product_id }}//UP1">+</button>
+            </form>
+        </div>
+        <div class="checkout-product-total">
+            <p>
+                <strong>
+                    {{ checkout_product_price_total }}
+                </strong>
+            </p>
+        </div>
+        <div class="checkout-product-delete">
+            <form action="checkout-product.php" class="card-form-delete">
+                <button class="card-item-delete" name="{{ checkout_product_userId }}//{{ checkout_product_id }}//DELETE"></button>
+            </form>
+        </div>
+    </div>
+    <hr>
+</div>

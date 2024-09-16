@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="templates/login/login.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<title>ShopIT</title>
+</head>
+<body>
+	<div class="logForm">
+	<form action="../../login.php" method="POST" onsubmit="event.preventDefault();" id="form">
+	  <fieldset>
+	    <legend>
+			<a href="index.php">
+			<div class="glow">
+    			<h1>
+					SHOP<span style="color: #FBD607">IT</span>
+				</h1>
+    		</div>
+			</a>
+		</legend>
+		  <div id="errors" class="{{ showError }} alert-danger">{{ errors }}</div>
+		  <label class="form-label">E-mail:</label>
+		  <input type="text" name="email" value="" id='email'>
+		  <br>
+		  <label class="form-label">Parolă:</label>
+		  <input type="password" name="password" value="" id='password'>
+		  <br>
+		  <br>
+	    <button onclick="checkFields()" id="buttonSign" >Conectare</button>
+	  </fieldset>
+	</form>
+	<a href="../../register.php" id="registerButton">Nu aveți un cont? Creați un utilizator nou</a>
+	<script text="text/javascript">
+		var x;
+		var y;
+		function verif(x,y)
+		{	if(x.length<y)
+				return 1;
+			else
+				return 0;
+		}
+		function validateEmail(email) {
+ 			 var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  				return re.test(email);
+				}
+		function checkFields()
+		{	var errors = [];
+			var email = document.getElementById('email').value;
+  			var password = document.getElementById('password').value;
+			if (verif(email,1)) {
+				errors.push("• Adresa de e-mail este obligatorie și nu poate fi goală");
+			} else {
+				if (!validateEmail(email)) {
+					errors.push("• Adresa de e-mail nu este validă");
+				}
+			}
+			if (verif(password,1)){
+				errors.push("<br>• Parola este necesară și nu poate fi goală.");
+			}
+        	if(errors.length > 0) {
+				document.getElementById("errors").innerHTML = errors;
+				document.getElementById("errors").className = "displayErrors";
+        	} else {
+    			form = document.getElementById('form');
+    			form.submit();
+        	}
+        }
+	</script></div>
+	{{ footer }}
+</body>
+</html>

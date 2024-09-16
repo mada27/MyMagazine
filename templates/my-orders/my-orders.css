@@ -1,0 +1,137 @@
+.container-my-orders {
+    max-width: 1280px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 30px;
+}
+
+.container-my-orders > h4 {
+    font-size: 20px;
+    font-family: 'Gilmer Medium', sans-serif;
+    color: #7F8389;
+}
+
+.user-order {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-bottom: 50px;
+}
+
+.user-order-table-header {
+    grid-template-columns: repeat(auto-fill, 16.66%);
+
+    box-shadow: 0 3px 8px #00000029;
+    padding: 20px;
+    display: grid;
+    align-items: center;
+    background-color: #ffffff;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 120px;
+}
+
+.user-order-table-header h5 {
+    font-size: 12px;
+    margin: 0;
+    font-family: 'Gilmer Medium', sans-serif;
+    text-transform: none;
+    word-wrap: break-word;
+    color: #ABA8B6;
+}
+
+/*Pentru div la o comanda, care vine multiplicata*/
+.user-order-table-content {
+    grid-template-columns: repeat(auto-fill, 16.66%);
+
+    box-shadow: 0 3px 8px #00000029;
+    padding: 20px;
+    display: grid;
+    margin-top: 20px;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.user-order-expand-button {
+    height: 40px;
+    background: #FBD607;
+    border: none;
+    color: #343334;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: 'Gilmer Medium', sans-serif;
+    border-radius: 5px;
+    text-align: center;
+    padding: 0 15px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.user-order-expand-button:hover {
+    background-color: #edc20c;
+}
+
+/*user expand*/
+
+.user-order-table-content-expand {
+    display: none;
+    grid-template-columns: 1fr;
+}
+
+.user-order-expand-show {
+    display: grid !important;
+}
+
+
+.user-order-expand {
+    grid-template-columns: repeat(auto-fill, 20%);
+    box-shadow: 0 3px 8px #00000029;
+
+    display: grid;
+    align-items: center;
+    background-color: #F3F3F3;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 120px;
+}
+
+.user-order-expand-detail {
+    grid-template-columns: repeat(auto-fill, 20%);
+    border-bottom: 1px solid #D8D8D8;
+    box-shadow: 0 3px 8px #00000029;
+
+    display: grid;
+    align-items: center;
+    background-color: #ffffff;
+}
+
+.user-order-expand-image {
+    width: 100%;
+    max-height: 150px;
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

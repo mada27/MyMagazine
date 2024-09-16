@@ -1,0 +1,32 @@
+<link rel="stylesheet" type="text/css" href="templates/cart/cart.css">
+<li style="float:right">
+    <a href="#" class="card-A">
+        <div class="dropdown">
+            <button class="dropbutton cart-button">
+                <span class="cartTotalAmount">{{ cart_total_value }} Lei</span>
+            </button>
+            <span class="cartItemCount">{{ cart_total_items }}</span>
+            <div class="cart-dropdown-content">
+                <div class="cart-header">
+                    <p>
+                        <span>{{ cart_total_items_in }}</span>
+                    </p>
+                </div>
+                <div class="cart-content">
+                    {{ cartProducts }}
+                </div>
+                <div class="cart-footer">
+                    <p>
+                        <strong>
+                            Total
+                            <span> {{ cart_total_value }} </span>
+                        </strong>
+                    </p>
+                </div>
+                <a href="{{ go_to_checkout }}" class="buy-now">
+                    <strong>Vezi Cosul</strong>
+                </a>
+            </div>
+        </div>
+    </a>
+</li>
